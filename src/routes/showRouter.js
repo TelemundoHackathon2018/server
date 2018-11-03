@@ -1,6 +1,6 @@
 //CRUD
 var express = require('express');
-var routers = express.Router();
+var showRouter = express.Router();
 
 var Show = require('../models/shows');
 
