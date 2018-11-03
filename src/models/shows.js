@@ -8,4 +8,4 @@ var Show = new Schema({
     "leaderboard": Array,
 });
 
-module.export = mongoose.model("Show", Show);
+module.exports = mongoose.model("Show", Show);
