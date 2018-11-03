@@ -6,7 +6,7 @@ var user = require('../models/user');
 
 // create new user
 userRouter.route('/add/post').post(function (req, res) {
-
+  console.log(req.body);
   var user = new User(req.body);
   console.log('i made it');
       user.save()
