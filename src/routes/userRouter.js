@@ -28,3 +28,7 @@ userRouter.route('/add/post').post(function (req, res) {
 
 
 // change password
+
+
+
+module.exports = userRouter;

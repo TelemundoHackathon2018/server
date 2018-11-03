@@ -16,4 +16,11 @@ mongooe.connect('mongodb://nbsee-admin:fiunbcu2018@nb-see-shard-00-00-1gn1a.gcp.
         console.error("Starting Error: ", err.stack);
         process.exit(1);
     });
-    
+
+
+var userRouter = require('./src/routes/userRouter');
+
+express.use(cors);
+express.use(bodyParser.urlencoded({extended: true}));
+express.use(bodyParser.json());
+express.use('/user', userRouter);
