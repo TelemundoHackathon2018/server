@@ -1,0 +1,26 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "backend for our app",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "node": "^11.0.0",
+    "react-native": "^0.57.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "start",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TelemundoHackathon2018/server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TelemundoHackathon2018/server/issues"
+  },
+  "homepage": "https://github.com/TelemundoHackathon2018/server#readme"
+}
