@@ -1,6 +1,6 @@
 //CRUD
 var express = require('express');
-var routers = express.Router();
+var userRouter = express.Router();
 
 var user = require('../models/user');
 
@@ -8,9 +8,11 @@ var user = require('../models/user');
 userRouter.route('/add/post').post(function (req, res) {
 
   var user = new User(req.body);
+  console.log('i made it');
       user.save()
     .then(user => {
     res.json(user);
+
     })
     .catch(err => {
     res.status(400).send("unable to save to database");

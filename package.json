@@ -4,8 +4,13 @@
   "description": "backend for our app",
   "main": "server.js",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
     "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.3.9",
     "node": "^11.0.0",
+    "path": "^0.12.7",
     "react-native": "^0.57.4"
   },
   "devDependencies": {},
