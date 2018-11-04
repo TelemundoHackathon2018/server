@@ -23,10 +23,22 @@ userRouter.get('/', function(req, res){
 });
 
 // update info
+// userRouter.post('/update/', function(req, res){
+//     User.update({...req.body})
+//     User.findOne({userName:req.query.userName})
+//     .then(User => res.send({ User: User }))
+//     .catch(e => res.send({ success: false, message: e.message }));
+// });
 
 
 // update points
-
+userRouter.post('/update-points/', function(req, res){
+    User.findOne({userName:req.query.userName})
+    .then(User => 
+        User.updateOne({userName:req.query.userName}, {$set: {points: User.points + req.query.points }}),
+        res.send({ User: User }))
+    .catch(e => res.send({ success: false, message: e.message }));
+});
 
 // update favorite
 
