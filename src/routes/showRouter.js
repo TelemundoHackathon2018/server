@@ -23,7 +23,7 @@ showRouter.post('/add', function (req, res) {
     });
 });
 
-
+// adding a user to the leaderboard
 showRouter.put('/add-to-leaderboard', function (req, res) {
     User.findOne({userName:req.query.username})
     .then(User => 
