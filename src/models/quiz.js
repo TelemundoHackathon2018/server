@@ -1,13 +1,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-import {Question} from 'question';
-import {Show} from 'shows';
-import {User} from 'user';
+var Question = require('question');
+var Show = require('shows');
+var User = require('user');
 
 var Quiz = new Schema({
-    "showName": { type: Schema.Types.ObjectId, ref: 'Show' },
-    "questions": [{ type: Schema.Types.ObjectId, ref: 'Question' }],
-    "username": { type: Schema.Types.ObjectId, ref: 'User' },
+    showName: Show.schema.obj,
+    questions: [Question.schema.obj],
+    username: User.schema.obj,
 });
 
 module.exports = mongoose.model("Quiz", Quiz);
