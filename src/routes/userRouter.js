@@ -1,4 +1,3 @@
-//CRUD
 var express = require('express');
 var userRouter = express.Router();
 
@@ -32,18 +31,17 @@ userRouter.get('/', function(req, res){
 
 
 // update points
-userRouter.post('/update-points/', function(req, res){
+userRouter.put('/update-points/', function(req, res){ 
     User.findOne({userName:req.query.userName})
-    .then(User => 
-        User.updateOne({userName:req.query.userName}, {$set: {points: User.points + req.query.points }}),
-        res.send({ User: User }))
-    .catch(e => res.send({ success: false, message: e.message }));
+    .then(User => {
+        User.points += parseInt(req.query.points);
+        User.save((err, updatedUser) => {
+            res.send(updatedUser);
+        } )
+    }
+    )
+    .catch(err => console.log(err));
 });
-
-// update favorite
-
-
-// change password
 
 
 

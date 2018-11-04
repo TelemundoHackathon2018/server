@@ -9,12 +9,14 @@ var port = 4200;
 require('./db.config');
 var userRouter = require('./src/routes/userRouter');
 var questionRouter = require('./src/routes/questionRouter');
+var showRouter = require('./src/routes/showRouter');
 
 api.use(cors());
 api.use(bodyParser.urlencoded({extended: true}));
 api.use(bodyParser.json());
 api.use('/user', userRouter);
 api.use('/question', questionRouter);
+api.use('/show', showRouter);
 
 
 api.listen(port, function() {
