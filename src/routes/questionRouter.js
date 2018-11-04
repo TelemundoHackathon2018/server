@@ -14,8 +14,10 @@ questionRouter.post('/add', function (req, res) {
     });
 });
 
+// fetch user data
 
 // update info
+
 
 
 // update points

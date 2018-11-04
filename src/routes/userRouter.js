@@ -15,6 +15,12 @@ userRouter.post('/add', function (req, res) {
     });
 });
 
+// fetch user data
+userRouter.get('/', function(req, res){
+    User.findOne({userName:req.query.userName})
+    .then(User => res.send({ User: User }))
+    .catch(e => res.send({ success: false, message: e.message }));
+});
 
 // update info
 
