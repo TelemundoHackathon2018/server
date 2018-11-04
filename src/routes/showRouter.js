@@ -7,15 +7,41 @@ var User = require('../models/user');
 // add new show
 showRouter.post('/add', function (req, res) {
     User.findOne({userName:req.body.username})
-    Show.create({...req.body})
-    .then(show => {
-    res.json(show);
-    })
+    .then(User => 
+        Show.create({showName: req.body.showName,
+                    schedule: req.body.schedule,
+                    description: req.body.description,
+                    leaderboard: [User]})
+        .then(Show => {
+        res.json(Show);
+        })
+        .catch(err => {
+        res.status(400).send("unable to save to database");
+    }))
     .catch(err => {
     res.status(400).send("unable to save to database");
     });
 });
 
+
+showRouter.put('/add-to-leaderboard', function (req, res) {
+    User.findOne({userName:req.query.username})
+    .then(User => 
+        Show.findOne({showName: req.query.showName})
+        .then(Show => {
+            Show.leaderboard.push(User);
+            Show.save((err, updatedLeaderboard) => {
+                res.send(updatedLeaderboard);
+            } )
+        
+        })
+        .catch(err => {
+        res.status(400).send("unable to save to database");
+    }))
+    .catch(err => {
+    res.status(400).send("unable to save to database");
+    });
+});
 
 // get show
 showRouter.get('/', function (req, res){
